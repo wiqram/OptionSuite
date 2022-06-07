@@ -28,7 +28,8 @@ class BackTestSession(object):
 
     # Create CsvData class object.
     dataProvider = 'iVolatility'
-    filename = '/Users/msantoro/PycharmProjects/Backtester/marketData/iVolatility/SPX/combinedCSV.csv'
+    #filename = '/Users/msantoro/PycharmProjects/Backtester/marketData/iVolatility/SPX/combinedCSV.csv'
+    filename = 'sampleData/aapl_sample_ivolatility.csv'
     self.dataHandler = csvData.CsvData(csvPath=filename, dataProvider=dataProvider, eventQueue=self.eventQueue)
 
     # Parameters for strangle strategy -- TODO: move params to file.
@@ -50,7 +51,7 @@ class BackTestSession(object):
     # Set up strategy (strangle strategy) and risk management preference.
     riskManagement = strangleRiskManagement.StrangleRiskManagement(
       strangleRiskManagement.StrangleManagementStrategyTypes.CLOSE_AT_50_PERCENT)  # strangleRiskManagement.StrangleManagementStrategyTypes.HOLD_TO_EXPIRATION)
-    self.strategyManager = strangleStrat.StrangleStrat(self.eventQueue, optCallDelta, maxCallDelta, optPutDelta,
+    self.strategyManager = strangleStrat.strangleStrat(self.eventQueue, optCallDelta, maxCallDelta, optPutDelta,
                                                        maxPutDelta, buyOrSell, underlyingTicker,
                                                        orderQuantity, riskManagement, expCycle, optimalDTE,
                                                        minimumDTE, maxBidAsk=maxBidAsk,

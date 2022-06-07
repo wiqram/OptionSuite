@@ -9,7 +9,7 @@ import decimal
 import logging
 import queue
 
-class StrangleStrat(strategy.Strategy):
+class strangleStrat(strategy.Strategy):
   """This class sets up strangle strategy, which involves buying or selling strangles.
 
   Strangle specific attributes:

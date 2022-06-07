@@ -68,7 +68,7 @@ class TestStrangleStrategy(unittest.TestCase):
     self.minCredit = 0.5
     self.maxBidAsk = 0.15
     self.minBuyingPower = None
-    self.curStrategy = strangleStrat.StrangleStrat(self.signalEventQueue, self.optCallDelta, self.maxCallDelta,
+    self.curStrategy = strangleStrat.strangleStrat(self.signalEventQueue, self.optCallDelta, self.maxCallDelta,
                                                    self.optPutDelta, self.maxPutDelta, self.buyOrSell,
                                                    self.underlyingTicker, self.orderQuantity, self.riskManagement,
                                                    self.expCycle, self.optimalDTE, self.minimumDTE, self.minimumROC,
@@ -80,7 +80,7 @@ class TestStrangleStrategy(unittest.TestCase):
   def testUpdateWithOptimalOptionNonSupportedExpiration(self):
     """Tests that no signal event is created if we choose an unsupported expiration."""
     expCycle = strangleStrat.strategy.ExpirationTypes.QUARTERLY
-    curStrategy = strangleStrat.StrangleStrat(self.signalEventQueue, self.optCallDelta, self.maxCallDelta,
+    curStrategy = strangleStrat.strangleStrat(self.signalEventQueue, self.optCallDelta, self.maxCallDelta,
                                               self.optPutDelta, self.maxPutDelta, self.buyOrSell, self.underlyingTicker,
                                               self.orderQuantity, expCycle, self.optimalDTE, self.minimumDTE,
                                               self.minimumROC, self.minCredit, self.maxBidAsk, self.minBuyingPower,
